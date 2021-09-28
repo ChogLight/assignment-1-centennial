@@ -1,12 +1,8 @@
-const http = require('http');
-const hostname = '127.0.0.1';
-const port = 3000;
-const server = http.createServer((req, res)=> {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain')
-    res.end('Hello world')
-});
+var express = require('express');
+var router = express.Router();
 
-server.listen(port, hostname, ()=>{
-    console.log(`Server running at ${hostname}:${port}`);
-})
+/* get home page */
+router.get('/', function(req, res, next) {
+    res.render('index',{title:'Hello'});
+});
+module.exports = router;
